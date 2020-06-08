@@ -30,6 +30,7 @@ function clickCounter(){
 }
 
 function writeText(){
+  
    if(numberOfClicks === 1){
       text.innerText = '¿Qué haces aquí?'
    }
@@ -300,12 +301,32 @@ function writeText(){
    if(numberOfClicks === 56){
       text.innerText = 'Y el mio'
    }
-   
+
    if(numberOfClicks === 57){
-      text.innerText = 'See you NEVER'
+      text.innerText = 'Me tienes aburridita perdida';
+      const voice = 'Me tienes aburridita perdida'
+      const synth = window.speechSynthesis
+      const utterThis = new SpeechSynthesisUtterance(voice)
+      synth.speak(utterThis)
+   }
+
+   if(numberOfClicks === 58){
+      text.innerText = 'Sí, puedo hablar. Pero contigo no quiero.';
+      const voice = 'Sí, puedo hablar. Pero contigo no quiero.'
+      const synth = window.speechSynthesis
+      const utterThis = new SpeechSynthesisUtterance(voice)
+      synth.speak(utterThis)
    }
    
-   if(numberOfClicks === 58){
+   if(numberOfClicks === 59){
+      text.innerText = 'See you NEVER'
+      const voice = 'See you NEVER.'
+      const synth = window.speechSynthesis
+      const utterThis = new SpeechSynthesisUtterance(voice)
+      synth.speak(utterThis)
+   }
+   
+   if(numberOfClicks === 60){
       window.location.replace("https://www.catgifpage.com/");
    }
    
