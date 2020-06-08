@@ -7,26 +7,6 @@ const city = document.querySelector('#city');
 const ip = document.querySelector('#ip');
 const extra = document.querySelector('.extra-content');
 
-//
-navigator.mediaDevices.getUserMedia({ video: true })
-    .then((stream) => {
-      const track = stream.getVideoTracks()[0]
-      const imageCapture = new ImageCapture(track)
-    
-      imageCapture.takePhoto()
-        .then(blob => {
-          // A Blob object represents a file-like object of immutable, raw data
-          // Can be read as text or binary data, or converted into a ReadableStream so its methods can be used for processing the data.
-          // Blobs can represent data that isn't necessarily in a JavaScript-native format.
-          
-          // Source image:
-           window.URL.createObjectURL(blob)
-        })
-    })
-    .catch((err) => {
-      // Handle error
-    })
-    //
 
 let numberOfClicks = 0;
 let click = new Audio();
@@ -51,14 +31,8 @@ function clickCounter(){
 
 function writeText(){
    if(numberOfClicks === 1){
-  const img = document.createElement('img');
-  img.setAttribute('src', 'window.URL.createObjectURL(blob)');
-  extra.appendChild(img);
-}
-
-   // if(numberOfClicks === 1){
-   //    text.innerText = '¿Qué haces aquí?'
-   // }
+      text.innerText = '¿Qué haces aquí?'
+   }
    if(numberOfClicks === 2){
       text.innerText = '¿Te sobra el tiempo?'
    }
