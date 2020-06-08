@@ -311,14 +311,22 @@ function writeText(){
    }
 
    if(numberOfClicks === 58){
-      text.innerText = 'Sí, puedo hablar. Pero contigo no quiero.';
-      const voice = 'Sí, puedo hablar. Pero contigo no quiero.'
+      text.innerText = 'Sí, puedo hablar.';
+      const voice = 'Sí, puedo hablar.'
+      const synth = window.speechSynthesis
+      const utterThis = new SpeechSynthesisUtterance(voice)
+      synth.speak(utterThis)
+   }
+
+   if(numberOfClicks === 59){
+      text.innerText = 'Pero contigo no quiero.';
+      const voice = 'Pero contigo no quiero.'
       const synth = window.speechSynthesis
       const utterThis = new SpeechSynthesisUtterance(voice)
       synth.speak(utterThis)
    }
    
-   if(numberOfClicks === 59){
+   if(numberOfClicks === 60){
       text.innerText = 'See you NEVER'
       const voice = 'See you NEVER.'
       const synth = window.speechSynthesis
@@ -326,7 +334,7 @@ function writeText(){
       synth.speak(utterThis)
    }
    
-   if(numberOfClicks === 60){
+   if(numberOfClicks === 61){
       window.location.replace("https://www.catgifpage.com/");
    }
    
