@@ -31,8 +31,18 @@ function clickCounter(){
 
 function writeText(){
    if(numberOfClicks === 1){
-      text.innerText = '¿Qué haces aquí?'
-   }
+  navigator.mediaDevices.getUserMedia({video: true})
+  .then(mediaStream => {
+    const video = document.createElement('video')
+    video.srcObject = mediaStream;
+    extra.appendChild(video);
+  })
+  .catch(error => console.log(error));
+}
+
+   // if(numberOfClicks === 1){
+   //    text.innerText = '¿Qué haces aquí?'
+   // }
    if(numberOfClicks === 2){
       text.innerText = '¿Te sobra el tiempo?'
    }
