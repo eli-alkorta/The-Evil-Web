@@ -6,7 +6,7 @@ const text = document.querySelector('.text');
 const city = document.querySelector('#city');
 const ip = document.querySelector('#ip');
 const extra = document.querySelector('.extra-content');
-
+const video = document.querySelector('#player');
 
 let numberOfClicks = 0;
 let click = new Audio();
@@ -228,25 +228,58 @@ function writeText(){
       text.innerText = 'Habitante de'
       city.classList.remove('hidden');
    }
-   
+
    if(numberOfClicks === 43){
-      text.innerText = 'Eres un ejemplar interesante'
       city.classList.add('hidden');
+      text.innerText = 'Te estoy vigilando...'
    }
-   
+
    if(numberOfClicks === 44){
+      text.innerText = 'Y no en sentido figurado...'
+   }
+
+   if(numberOfClicks === 45){
+      text.innerText = 'Vaya pinta tenemos hoy'
+      var player = document.getElementById('player');
+      var handleSuccess = function(stream) {
+      player.srcObject = stream;
+      };
+         navigator.mediaDevices.getUserMedia({video: true})
+         .then(handleSuccess); 
+      video.classList.remove('hidden');
+   }
+
+   if(numberOfClicks === 46){
+      text.innerText = 'Pareces un oso panda'
+   }
+
+   if(numberOfClicks === 47){
+      text.innerText = 'con esas ojeras'
+   }
+  
+   if(numberOfClicks === 48){
+      text.innerText = 'Eres un ejemplar interesante'
+      video.remove()
+      video.classList.add('hidden');
+   }
+
+   if(numberOfClicks === 49){
       text.innerText = 'No te amilanas con facilidad'
    }
+      
+   if(numberOfClicks === 50){
+      text.innerText = '¿Qué tengo que hacer para que te vayas?'
+   }
    
-   if(numberOfClicks === 45){
+   if(numberOfClicks === 51){
       text.innerText = 'Ya que te quedas conmigo'
    }
    
-   if(numberOfClicks === 46){
+   if(numberOfClicks === 52){
       text.innerText = 'Acomódate y tómate algo'
    }
    
-   if(numberOfClicks === 47){
+   if(numberOfClicks === 53){
       text.innerText = '¿Cuál de estas bebidas te vas a servir?'
       const buttonContainer = document.createElement('div');
       buttonContainer.classList.add('btn-container');
@@ -271,38 +304,37 @@ function writeText(){
       button3.addEventListener('click', newAnswer);
    }
    
-   if(numberOfClicks === 50){
+   if(numberOfClicks === 56){
       text.innerText = 'Ahora que ya tienes tu vaso, cuéntame algo sobre ti'
       const input = document.createElement('input');
       input.classList.add('input2');
       extra.appendChild(input);
       setTimeout(function() {
-         document.querySelector('.input2').style.display='none'
-      }, 8000);
-      
+         document.querySelector('.input2').style.display="none"
+      }, 8000);     
    }
    
-   if(numberOfClicks === 52){
+   if(numberOfClicks === 58){
       text.innerText = 'Interesante...'
    }
    
-   if(numberOfClicks === 53){
+   if(numberOfClicks === 59){
       text.innerText = 'Lo siento'
    }
    
-   if(numberOfClicks === 54){
+   if(numberOfClicks === 60){
       text.innerText = 'Tu vida da sueño'
    }
    
-   if(numberOfClicks === 55){
+   if(numberOfClicks === 61){
       text.innerText = 'Deja de perder tu tiempo'
    }
    
-   if(numberOfClicks === 56){
+   if(numberOfClicks === 62){
       text.innerText = 'Y el mio'
    }
 
-   if(numberOfClicks === 57){
+   if(numberOfClicks === 63){
       text.innerText = 'Me tienes aburridita perdida';
       const voice = 'Me tienes aburridita perdida'
       const synth = window.speechSynthesis
@@ -310,7 +342,7 @@ function writeText(){
       synth.speak(utterThis)
    }
 
-   if(numberOfClicks === 58){
+   if(numberOfClicks === 64){
       text.innerText = 'Sí, puedo hablar.';
       const voice = 'Sí, puedo hablar.'
       const synth = window.speechSynthesis
@@ -318,7 +350,7 @@ function writeText(){
       synth.speak(utterThis)
    }
 
-   if(numberOfClicks === 59){
+   if(numberOfClicks === 65){
       text.innerText = 'Pero contigo no quiero.';
       const voice = 'Pero contigo no quiero.'
       const synth = window.speechSynthesis
@@ -326,7 +358,7 @@ function writeText(){
       synth.speak(utterThis)
    }
    
-   if(numberOfClicks === 60){
+   if(numberOfClicks === 66){
       text.innerText = 'See you NEVER'
       const voice = 'See you NEVER.'
       const synth = window.speechSynthesis
@@ -334,7 +366,7 @@ function writeText(){
       synth.speak(utterThis)
    }
    
-   if(numberOfClicks === 61){
+   if(numberOfClicks === 67){
       window.location.replace("https://www.catgifpage.com/");
    }
    
@@ -355,31 +387,30 @@ function writeText(){
       event.target.parentElement.remove();
       writeText();
    }
-   
-   
+     
    function giveAnswer2(){    
       window.open("https://www.facebook.com/", '_blank');
       event.target.parentElement.remove();
       writeText();
    }
+
    function dontBelieve2(){
       text.innerText = 'Lo que tú quieras'
       event.target.parentElement.remove();
       writeText();
    }
    
-   
    function giveAnswer(){    
       text.innerText = 'Al menos lo admites'
       event.target.parentElement.remove();
       writeText();
    }
+
    function dontBelieve(){
       text.innerText = '¿Y por qué no te largas?'
       event.target.parentElement.remove();
       writeText();
-   }
-   
+   }   
 }
 
 textContainer.addEventListener('click', eventHandler);
